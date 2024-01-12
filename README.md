@@ -1,2 +1,2 @@
 # angeloa-pub
-Angelo Andrade public repo for CIT93
+Angelo Andrade Public repo for CIT93
