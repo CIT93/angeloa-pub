@@ -33,10 +33,7 @@ If you live in an apartment, then add 2 points.
 
 
 
-const largeHouse =  "large house";
-const mediumHouse =  "medium house";
-const smallHouse = "small house";
-const apartment = "apartment";
+
 
 function findingHouseSize(houseSize) {
     let carbonFootprintPoints = 0;
@@ -50,10 +47,9 @@ function findingHouseSize(houseSize) {
     } else if (houseSize === "apartment") {
         carbonFootprintPoints = carbonFootprintPoints + 2;
     }
-    return carbonFootprintPoints;
+    console.log(`Based on the size of your ${houseSize} the points would be ${carbonFootprintPoints}.`);
+    
 }
 
-console.log(findingHouseSize(largeHouse));
-console.log(findingHouseSize(mediumHouse));
-console.log(findingHouseSize(smallHouse));
-console.log(findingHouseSize(apartment));
+
+findingHouseSize("apartment")
