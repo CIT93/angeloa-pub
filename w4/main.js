@@ -12,6 +12,7 @@ function findingHouseSize(houseSize) {
     } else if (houseSize === "apartment") {
         houseSizePoint = 2;
     }
+    return houseSizePoint;
 }
 
 function determineHouseholdPts(numberInHousehold) {
@@ -31,23 +32,42 @@ function determineHouseholdPts(numberInHousehold) {
     } else if (numberInHousehold > 6){
         houseHoldPoints = 2;
     }
+    return houseHoldPoints;
 }
 
 
 
+
+    
+    
     
 function start(houseHoldMemebers, houseSizes) {
     const houseHoldPts = determineHouseholdPts(houseHoldMemebers);
     
     const houseSizePts = findingHouseSize(houseSizes);
     const total = houseHoldPts + houseSizePts;
-    cfpData.push(houseHoldMemebers, houseSizes, houseHoldPts, houseSizePts, total);
+    cfpData.push([houseHoldMemebers, houseSizes, houseHoldPts, houseSizePts, total]);
    
     
 }
 
 
-start(6, "apartment");
+function displayOutput() {
+    for (arr of cfpData) {
+        console.log(arr);
+        const output = document.getElementById("output");
+        const newH1 = document.createElement("h1");
+        const newH2 = document.createElement("h2");
+        const newH3 = document.createElement("h3");
+        newH1.textContent = `Carbon Footprint Total is ${arr[4]}`;
+        newH2.textContent = `There are ${arr[0]} household memebers and the house member score is ${arr[2]}`;
+        newH3.textContent = `It is a ${arr[1]} and the house score is ${arr[3]}`;
+        output.appendChild(newH1);
+        output.appendChild(newH2);
+        output.appendChild(newH3);
+    }
+}
+
 start(5, "apartment");
 start(4, "apartment");
 start(3, "apartment");
@@ -72,8 +92,5 @@ start(3, "small house");
 start(2, "small house");
 start(1, "small house");
 
-function displayOutput() {
-    
-}
 
 displayOutput()
