@@ -33,10 +33,9 @@ If you live in an apartment, then add 2 points.
 
 
 
-
+let carbonFootprintPoints = 0;
 
 function findingHouseSize(houseSize) {
-    let carbonFootprintPoints = 0;
 
     if (houseSize === "large house") {
         carbonFootprintPoints = carbonFootprintPoints + 10;
