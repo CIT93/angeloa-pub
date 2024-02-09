@@ -34,34 +34,34 @@ function determineHouseholdPts(numberInHousehold) {
   return houseHoldPoints;
 }
 
-function displayOutObj(obj) {
-  console.log(obj);
-  const output = document.getElementById("output");
-  const newH2 = document.createElement("h2");
-  newH2.textContent = `Carbon Footprint ${obj.total}`;
-  output.appendChild(newH2);
+// function displayOutObj(obj) {
+//   console.log(obj);
+//   const output = document.getElementById("output");
+//   const newH2 = document.createElement("h2");
+//   newH2.textContent = `Carbon Footprint ${obj.total}`;
+//   output.appendChild(newH2);
 
-  const newH3 = document.createElement("h3");
-        newH3.textContent = `Based on number and size home `;
-        const newP = document.createElement("p");
-        newP.textContent = `This number is based on the number of people in the house of ${obj.houseHoldMemebers} (score ${obj.houseSizePts}),`;
-        newP.textContent += `and a ${obj.houseSizes} size of home (score ${obj.houseHoldPts}).`
-        output.appendChild(newH3);
-        output.appendChild(newP);
+//   const newH3 = document.createElement("h3");
+//         newH3.textContent = `Based on number and size home `;
+//         const newP = document.createElement("p");
+//         newP.textContent = `This number is based on the number of people in the house of ${obj.houseHoldMemebers} (score ${obj.houseSizePts}),`;
+//         newP.textContent += `and a ${obj.houseSizes} size of home (score ${obj.houseHoldPts}).`
+//         output.appendChild(newH3);
+//         output.appendChild(newP);
         
-}
+// }
 
 function start(houseHoldMemebers, houseSizes) {
   const houseHoldPts = determineHouseholdPts(houseHoldMemebers);
 
   const houseSizePts = findingHouseSize(houseSizes);
-  
+  const total = houseHoldPts +houseSizePts;
   cfpData.push({
     houseHoldMemebers: houseHoldMemebers,
     houseSizes: houseSizes,
     houseSizePts: houseSizePts,
     houseHoldPts: houseHoldPts,
-    total: houseHoldPts + houseSizePts,
+    cfpTotal: total
   });
 //  displayOutObj(cfpObj);
 }
@@ -72,15 +72,15 @@ function displayOutput() {
       console.log(obj)
         const output = document.getElementById("output");
         const newH2 = document.createElement("h2");
-        newH2.textContent = `Carbon Footprint ${obj.total}`;
-        // const newH3 = document.createElement("h3");
-        // newH3.textContent = `Based on number and size home `;
-        // const newP = document.createElement("p");
-        // newP.textContent = `This number is based on the number of people in the house of ${arr[0]} (score ${arr[3]}),`;
-        // newP.textContent += `and a ${arr[1]} size of home (score ${arr[2]}).`
+        newH2.textContent = `Carbon Footprint ${obj.cfpTotal}`;
+        const newH3 = document.createElement("h3");
+         newH3.textContent = `Based on number and size home `;
+        const newP = document.createElement("p");
+        newP.textContent = `This number is based on the number of people in the house of ${obj.houseHoldMemebers} (score ${obj.houseSizePts}),`;
+        newP.textContent += `and a ${obj.houseSizes} size of home (score ${obj.houseHoldPts}).`
         output.appendChild(newH2);
-        // output.appendChild(newH3);
-        // output.appendChild(newP);
+         output.appendChild(newH3);
+        output.appendChild(newP);
     }
 }
 
