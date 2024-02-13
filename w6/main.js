@@ -128,8 +128,11 @@ console.log(myObj["houseSize"]);
 myObj.displayOut();
 
 
-start(2, "apartment")
-start(10, "large house")
-start(2, "small house")
-start(4, "medium house")
+// start(2, "apartment")
+// start(10, "large house")
+// start(2, "small house")
+// start(4, "medium house")
 displayOutput()
+
+// the required attribute does simple form validation
+// built in validation is for when assuming you will get incorrect data so I'll stop it.
