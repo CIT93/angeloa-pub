@@ -1,3 +1,4 @@
+const FORM =  document.getElementById("form");
 const cfpData = [];
 
 function findingHouseSize(houseSize) {
@@ -136,3 +137,15 @@ displayOutput()
 
 // the required attribute does simple form validation
 // built in validation is for when assuming you will get incorrect data so I'll stop it.
+
+FORM.addEventListener('submit', function(e){
+  e.preventDefault();
+  // console.log("I am inside the callback function");
+  // console.log(e);
+  const firstName = FORM.firstname.value;
+  const lastName =  FORM.lastname.value;
+  
+})
+//callback
+// in the event listener what is happening is when the submit button is clicked with something inside the input it will
+// show the message inside the console with the e. e is the parameter
