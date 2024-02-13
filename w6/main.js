@@ -144,7 +144,8 @@ FORM.addEventListener('submit', function(e){
   // console.log(e);
   const firstName = FORM.firstname.value;
   const lastName =  FORM.lastname.value;
-  
+  const houseMembers = FORM.housem.value;
+  const houseSzie = FORM.houses.value;
 })
 //callback
 // in the event listener what is happening is when the submit button is clicked with something inside the input it will
