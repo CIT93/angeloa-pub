@@ -13,28 +13,41 @@
             background-color: #333;
             color: white;
         }
+        input:in-range {
+            background-color: lightgreen;
+        }
+        input:out-of-range {
+            background-color: lightcoral;
+        }
     </style>
 </head>
 <body>
     <form id="form">
 
         <fieldset>
-            <legend>Input Carbon Footprint</legend>
+            <legend>Calculating Carbon Footprint</legend>
             <div>
                 <label for="">First Name:</label>
                 <input type="text" name="firstname" required>
             </div>
             <div>
-                <label for="">First Name:</label>
-                <input type="text" name="firstname" required>
+                <label for="">Last Name:</label>
+                <input type="text" name="lastname" required>
             </div>
             <div>
-                <label for="household">How many people live with you?</label>
-                <input type="number" name="housem" required>
+                <label for="household">Count the members of your household</label>
+                <input type="number" name="housem" min="1" max="6" required>
             </div>
             <div>
-                <label for="housesize"></label>
-                <input type="number" name="houses" required>
+                <label for="housesize">Consider the size of your house</label>
+               <!--<input type="text" name="houses" required>-->
+               <select name="houses" required>
+                <option value="">----Please enter size of home</option>
+                <option value="apartment">Apartment</option>
+                <option value="large house">Large</option>
+                <option value="medium house">Medium</option>
+                <option value="small house">Small</option>
+               </select>
             </div>
             <button type="submit">Submit</button>
         </fieldset>

@@ -1,5 +1,6 @@
 const FORM =  document.getElementById("form");
 const cfpData = [];
+const OUTPUT = document.getElementById("output");
 
 function findingHouseSize(houseSize) {
   let houseSizePoint = 0;
@@ -69,7 +70,7 @@ function start(houseHoldMemebers, houseSizes) {
 
 
 function displayOutput() {
-  const output = document.getElementById("output");
+  
     for (obj of cfpData) {
       console.log(obj)
         const newH2 = document.createElement("h2");
@@ -104,9 +105,9 @@ function displayOutputLoop() {
     const newP = document.createElement("p");
     newP.textContent = `This number is based on the number of people in the house of ${arr[0]} (score ${arr[3]}),`;
     newP.textContent += `and a ${arr[1]} size of home (score ${arr[2]}).`;
-    output.appendChild(newH2);
-    output.appendChild(newH3);
-    output.appendChild(newP);
+    OUTPUT.appendChild(newH2);
+    OUTPUT.appendChild(newH3);
+    OUTPUT.appendChild(newP);
   }
 }
 //displayOutputLoop()
@@ -129,10 +130,7 @@ console.log(myObj["houseSize"]);
 myObj.displayOut();
 
 
-// start(2, "apartment")
-// start(10, "large house")
-// start(2, "small house")
-// start(4, "medium house")
+
 displayOutput()
 
 // the required attribute does simple form validation
@@ -144,9 +142,15 @@ FORM.addEventListener('submit', function(e){
   // console.log(e);
   const firstName = FORM.firstname.value;
   const lastName =  FORM.lastname.value;
-  const houseMembers = FORM.housem.value;
+  const houseMembers = parseInt(FORM.housem.value);
   const houseSzie = FORM.houses.value;
+  start(houseMembers, houseSzie);
+  OUTPUT.innerHTML = "";
+  displayOutput();
+  FORM.reset();
 })
-//callback
-// in the event listener what is happening is when the submit button is clicked with something inside the input it will
-// show the message inside the console with the e. e is the parameter
+// is the apartment score correct?
+// Yes, the partment score is correct
+
+// why are we doing all this work to make sure ther user is giving us good data?
+// The user might not give good data
