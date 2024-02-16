@@ -53,28 +53,33 @@ function determineHouseholdPts(numberInHousehold) {
         
 // }
 
-function start(houseHoldMemebers, houseSizes) {
+function start(houseHoldMemebers, houseSizes, firstName, lastName) {
   const houseHoldPts = determineHouseholdPts(houseHoldMemebers);
 
   const houseSizePts = findingHouseSize(houseSizes);
   const total = houseHoldPts +houseSizePts;
+  const fullName = firstName + " " +lastName + "'s";
+
   cfpData.push({
     houseHoldMemebers: houseHoldMemebers,
     houseSizes: houseSizes,
     houseSizePts: houseSizePts,
     houseHoldPts: houseHoldPts,
+     firstName: firstName,
+     lastName: lastName,
+    fullName: fullName,
     cfpTotal: total
   });
 //  displayOutObj(cfpObj);
 }
-
+// start(3,"apartment", "angelo ", "andrade")
 
 function displayOutput() {
   
     for (obj of cfpData) {
       console.log(obj)
         const newH2 = document.createElement("h2");
-        newH2.textContent = `Carbon Footprint ${obj.cfpTotal}`;
+        newH2.textContent = `This is ${obj.fullName} Carbon Footprint ${obj.cfpTotal}`;
         const newH3 = document.createElement("h3");
          newH3.textContent = `Based on number and size home `;
         const newP = document.createElement("p");
@@ -85,6 +90,8 @@ function displayOutput() {
         output.appendChild(newP);
     }
 }
+
+displayOutput()
 
 //start(5, "apartment");
 // start(4, "apartment");
@@ -144,7 +151,7 @@ FORM.addEventListener('submit', function(e){
   const lastName =  FORM.lastname.value;
   const houseMembers = parseInt(FORM.housem.value);
   const houseSzie = FORM.houses.value;
-  start(houseMembers, houseSzie);
+  start(houseMembers, houseSzie, firstName, lastName);
   OUTPUT.innerHTML = "";
   displayOutput();
   FORM.reset();
