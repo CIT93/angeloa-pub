@@ -1,7 +1,10 @@
 const TBL = document.getElementById("tab-data");
-
+let headings = false;
 function renderTblHeading(data) {
     const table = document.createElement("table");
+
+    if (!headings) {
+
     const thead = document.createElement("thead");
     const tr = document.createElement("tr"); 
     const headingTextArr = ["Name", "Household", "HouseSize", "Footprint", "Actions"];
@@ -12,10 +15,11 @@ function renderTblHeading(data) {
     });
     thead.appendChild(tr);
     table.appendChild(thead);
+    }
     TBL.appendChild(table);
+    headings = true;
     return table;
     }
-    //there is an error for rendering table because table could not be found in the file
     function renderTbl(data) {
       const table = renderTblHeading();
       const tbody = document.createElement("tbody");
