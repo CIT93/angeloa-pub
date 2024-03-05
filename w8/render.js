@@ -1,4 +1,5 @@
 const TBL = document.getElementById("tab-data");
+const FORM =  document.getElementById("form");
 function renderTblHeading(data) {
     TBL.innerHTML = "";
     const table = document.createElement("table");
@@ -15,7 +16,7 @@ function renderTblHeading(data) {
     table.appendChild(thead);
     return table;
   }
-  function renderTblBtn(index, data) {
+  function renderTblBtn(obj, index, data) {
     const td = document.createElement("td"); 
         const btnEdit = document.createElement("button");
         const btnDel = document.createElement("button");
@@ -24,13 +25,18 @@ function renderTblHeading(data) {
       td.appendChild(btnEdit);
       td.appendChild(btnDel);
       
-      btnDel.addEventListener('click', function(){
+      btnDel.addEventListener('click', function(e){
         console.log("delete")
         data.splice(index, 1);
         renderTbl(data);
       })
-      btnEdit.addEventListener("click", function(form){
-        
+      btnEdit.addEventListener("click", function(e){
+        FORM[1].value = obj.firstName;
+        FORM[2].value = obj.lastName;
+        FORM[3].value = obj.houseHoldMemebers;
+        FORM[4].value = obj.houseSizes;
+        data.splice(index, 1);
+        renderTbl(data);
       })
       return td;
   }
@@ -49,7 +55,7 @@ function renderTblHeading(data) {
           
         }
       }
-      const td = renderTblBtn(index, data);
+      const td = renderTblBtn(obj, index, data);
       tr.appendChild(td);
         tbody.appendChild(tr)
   });
