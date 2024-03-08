@@ -15,12 +15,12 @@
             <legend>Calculating Carbon Footprint</legend>
             <div>
                 <label for="">First Name:</label>
-                <input id="firstNameInput" type="text" name="firstname" >
+                <input id="firstName" type="text" name="firstname" >
                 <span id="firstNameError" class="error" role="alert"></span>
             </div>
             <div>
                 <label for="">Last Name:</label>
-                <input id="lastNameInput" type="text" name="lastname" >
+                <input id="lastName" type="text" name="lastname" >
                 <span id="lastNameError" class="error" role="alert"></span>
             </div>
             <div>
@@ -39,6 +39,7 @@
                </select>
             </div>
             <button type="submit">Submit</button>
+            <span id="submitError" class="error"></span>
         </fieldset>
     </form>
     <div id="output"></div>
