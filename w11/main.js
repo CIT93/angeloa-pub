@@ -9,6 +9,7 @@ const start = (...i) => {
   const houseHoldPts = determineHouseholdPts(i[2]);
 
   const houseSizePts = findingHouseSize(i[3]);
+  const foodChoicePts =   foodChoicePts;
   const total = houseHoldPts +houseSizePts;
   cfpData.push({
     firstName: i[0],
@@ -17,6 +18,7 @@ const start = (...i) => {
     houseSizes: i[3],
     houseSizePts: houseSizePts,
     houseHoldPts: houseHoldPts,
+    foodChoicePts: foodChoicePts,
     cfpTotal: total
   });
 
@@ -49,7 +51,7 @@ FORM.addEventListener('submit', e => {
     SUBMIT.textContent = "";
 
     // start(FNAME.value, LNAME.value, parseInt(FORM.housem.value), FORM.houses.value);
-    const fpObj = new FP(FNAME.value, LNAME.value, parseInt(FORM.housem.value), FORM.houses.value);
+    const fpObj = new FP(FNAME.value, LNAME.value, parseInt(FORM.housem.value), FORM.houses.value, FORM.food.value);
     // fpObj.houseSizePoints();
     // fpObj.houseHoldPoints();
     cfpData.push(fpObj);
