@@ -41,7 +41,7 @@ class FP {
     }
     foodChoicePoints(){
       if(this.foodChoice === "prepacked food"){
-        this.foodChoice = 12;
+        this.foodChoicePoints = 12;
       }
       else if(this.foodChoice === "meat daily"){
         this.foodChoicePoints = 10;
