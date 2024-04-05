@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 12</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form>
+        <h1>How to get Fit</h1>
+        <div>
+            <label for="exercise">Type of Exercise</label>
+            <select id="exercise" name="exercise">
+                <option value="#">---pick an exercise</option>
+                <option value="push ups">Push ups</option>
+                <option value="squats">Squats</option>
+                <option value="lunges">Lunges</option>
+                <option value="crunches">Crunches</option>
+                <option value="berpee">Burpee</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="reps">Target Number of Reps</label>
+            <input id="reps" name="reps" type="number" required>
+        </div>
+
+        <div>
+            <label for="time">Time in Minutres</label>
+            <input id="time" name="time" type="number" required>
+        </div>
+        
+        <label for="submitBtn">Get Ready!</label>
+        <button id="submitBtn" type="submit">Submit</button>
+    </form>
+
+    <div class="start-sect" id="start-sect">
+        <h2>Submit to start!</h2>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

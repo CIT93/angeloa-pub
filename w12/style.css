@@ -1,0 +1,15 @@
+body {
+    background-color: #373737;
+}
+
+form {
+    border: 1px solid #95b3e0;
+    padding: 10px;
+}
+h1, label, h2 {
+    color: #95b3e0;
+}
+
+.start-sect {
+    color: 	#AFE1AF;
+}
