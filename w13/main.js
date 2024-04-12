@@ -19,6 +19,7 @@ const displayStopMessage = function(exercise, reps, time) {
 
     const startSection = document.getElementById("start-sect");
 
+    if(time !== ""){
     setTimeout(() => {
         const stopMessage = document.createElement("p");
         stopMessage.textContent = `Stop ${exercise}`;
@@ -33,6 +34,9 @@ const displayStopMessage = function(exercise, reps, time) {
         
         },2000);
     }, time * 3000);
+    }else{
+        reject('Error on Time Section');
+    }
     });
     
 };
@@ -43,9 +47,7 @@ const displayingText = function() {
         const reps = document.getElementById("reps").value;
         const time = document.getElementById("time").value;
         
-        if (time === "") {
-            reject(`Error on Time Selection`);
-        } else {
+        
             displayStartMessage(exercise, reps)
                 .then(() => {
                     return displayStopMessage(exercise, reps, time);
@@ -54,14 +56,16 @@ const displayingText = function() {
                     resolve();
                 })
                 .catch(error => reject(error));
-        }
     });
 };
 
 const onError = (error) => {
-    displayStopMessage(error, "h2");
+    const errorMessage = document.createElement("h2");
+    errorMessage.textContent = error;
     const startSection = document.getElementById("start-sect");
-    startSection.textContent = "";
+    startSection.textContent = ''; 
+    startSection.appendChild(errorMessage);
+    
 }
 document.getElementById("submitBtn").addEventListener('click', function(e) {
     e.preventDefault(); 
