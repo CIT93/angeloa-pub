@@ -14,7 +14,7 @@ const displayStartMessage = function(exercise, reps) {
 };
 
 
-const displayStopMessage = function(exercise, reps, time, callback) {
+const displayStopMessage = function(exercise, reps, time) {
     return new Promise((resolve, reject) =>{
 
     const startSection = document.getElementById("start-sect");
@@ -38,21 +38,33 @@ const displayStopMessage = function(exercise, reps, time, callback) {
 };
 
 const displayingText = function() {
-    const exercise = document.getElementById("exercise").value;
-    const reps = document.getElementById("reps").value;
-    const time = document.getElementById("time").value;
-    
-    displayStartMessage(exercise, reps)
-        .then(() => {
-            return displayStopMessage(exercise, reps, time);
-        })
-        .catch((error) => {
-            console.error(error);
-        });
+    return new Promise((resolve, reject) => {
+        const exercise = document.getElementById("exercise").value;
+        const reps = document.getElementById("reps").value;
+        const time = document.getElementById("time").value;
+        
+        if (time === "") {
+            reject(`Error on Time Selection`);
+        } else {
+            displayStartMessage(exercise, reps)
+                .then(() => {
+                    return displayStopMessage(exercise, reps, time);
+                })
+                .then(() => {
+                    resolve();
+                })
+                .catch(error => reject(error));
+        }
+    });
 };
 
-
+const onError = (error) => {
+    displayStopMessage(error, "h2");
+    const startSection = document.getElementById("start-sect");
+    startSection.textContent = "";
+}
 document.getElementById("submitBtn").addEventListener('click', function(e) {
     e.preventDefault(); 
     displayingText()
-});
+    .catch(onError);
+})
